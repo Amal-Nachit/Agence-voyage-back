@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FormulaireContact{% endblock %}
+
+{% block body %}
+    <h1>FormulaireContact</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ formulaire_contact.id }}</td>
+            </tr>
+            <tr>
+                <th>NbPlaces</th>
+                <td>{{ formulaire_contact.nbPlaces }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ formulaire_contact.message }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_formulaire_index') }}">back to list</a>
+
+    <a href="{{ path('app_formulaire_edit', {'id': formulaire_contact.id}) }}">edit</a>
+
+    {{ include('formulaire/_delete_form.html.twig') }}
+{% endblock %}

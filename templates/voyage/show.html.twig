@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voyage{% endblock %}
+
+{% block body %}
+    <h1>Voyage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ voyage.id }}</td>
+            </tr>
+            <tr>
+                <th>Destination</th>
+                <td>{{ voyage.destination }}</td>
+            </tr>
+            {% for pays in voyage.pays %}
+    <tr>
+        <th>Pays</th>
+        <td>{{ pays.nom }}</td>
+    </tr>
+{% endfor %}
+
+
+            {% for categorie in voyage.categorie %}
+    <tr>
+        <th>Catégorie</th>
+        <td>{{ categorie.nom }}</td>
+    </tr>
+{% endfor %}
+            <tr>
+                <th>Date de départ</th>
+                <td>{{ voyage.dateDepart ? voyage.dateDepart|date('d/m/Y')  : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date du retour</th>
+                <td>{{ voyage.dateRetour ? voyage.dateRetour|date('d/m/Y')  : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ voyage.description }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ asset(voyage.image) }}" alt="Image Essaouira"></td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ voyage.prix }}</td>
+            </tr>
+            <tr>
+                {# <th>Créateur</th>
+                <td>{{ user.nom }}</td> #}
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_voyage_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('app_voyage_edit', {'id': voyage.id}) }}">Editer</a>
+
+    {{ include('voyage/_delete_form.html.twig') }}
+{% endblock %}
