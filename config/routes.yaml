@@ -6,4 +6,4 @@ controllers:
 
 home:
     path: /home
-    controller: App\Controller\HomeController::index
+    controller: App\Controller\ActualitePatrimoineController::index
