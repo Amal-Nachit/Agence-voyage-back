@@ -35,15 +35,15 @@ Ce projet est le back-end d'une plateforme d'agence de voyage, développé avec 
 
 ### Instructions
 
-1. **Cloner le dépôt :**
+**Cloner le dépôt :**
    ```bash
    git clone https://github.com/nom-utilisateur/agence-voyage-back.git
    cd agence-voyage-back
 **Installer les dépendances :**
 
-    ```bash
-     composer install
-     ```
+   ```bash
+   composer install
+    ```
 **Configurer l'environnement : Modifiez le fichier .env pour ajouter vos paramètres de base de données :**
    ```bash
    DATABASE_URL="mysql://username:password@127.0.0.1:3306/tripagency?serverVersion=5.7"
