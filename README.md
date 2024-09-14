@@ -1,39 +1,58 @@
-# Agence de Voyage - Frontend
+# Agence de Voyage - Backend
 
-Ce projet est l'interface publique du site d'une agence de voyage, développée avec Next.js et React. Il permet de présenter les voyages disponibles, de filtrer par catégorie, pays, et durée, et d'envoyer des demandes de contact pour les voyages sélectionnés.
+Ce projet est le back-end d'une plateforme d'agence de voyage, développé avec Symfony. Il gère l'API utilisée par le front-end pour afficher les voyages et traiter les demandes de contact. Il propose également une interface d'administration pour la gestion des voyages et des utilisateurs.
 
 ## Lien du projet
 
-- [Interface publique des voyages](https://agence-voyage-1z1-noyj41tnv-amal-nachit95.vercel.app/voyages)
+- [Interface d'administration - Symfony](https://simplondevgrenoble.nohost.me/amal/tripagencyprod/public/)
 
 ## Fonctionnalités
 
-- Affichage des voyages disponibles.
-- Affichage détaillé des voyages.
-- Page d'accueil mettant en avant les derniers voyages disponibles.
+- **API REST** : 
+  - Fournit les données des voyages au front-end (Next.js).
+- **Administration** :
+  - Gestion complète des voyages (ajouter, modifier, supprimer).
+  - Gestion des utilisateurs avec rôles (admin et éditeur).
+  - Gestion des prises de contact.
+- **Sécurité** :
+  - Accès à l'API uniquement pour le front-end.
+  - Accès à l'administration réservé aux utilisateurs ayant des rôles admin ou éditeur.
 
 ## Technologies utilisées
 
-- **Next.js** : Framework React pour le rendu côté serveur et les pages dynamiques.
-- **React** : Bibliothèque JavaScript pour la construction de l'interface utilisateur.
-- **Axios** : Utilisé pour les appels à l'API du back-end.
+- **Symfony 5.4** : Framework PHP pour la construction du back-end et des services API.
+- **Doctrine** : ORM utilisé pour la gestion de la base de données.
+- **Twig** : Moteur de templates pour l'interface d'administration.
+- **JWT** : Utilisé pour sécuriser les appels à l'API.
 
 ## Installation
 
 ### Prérequis
 
-- **Node.js** : Version 14 ou supérieure.
-- **npm** ou **yarn** : Pour la gestion des dépendances.
+- **PHP 8.0** ou plus
+- **Composer** : Gestionnaire de dépendances PHP.
+- **MySQL** ou une autre base de données relationnelle.
 
 ### Instructions
 
-**Cloner le dépôt :**
+1. **Cloner le dépôt :**
    ```bash
-   git clone https://github.com/nom-utilisateur/agence-voyage-front.git
-   cd agence-voyage-front
-
-    Installer les dépendances :
+   git clone https://github.com/nom-utilisateur/agence-voyage-back.git
+   cd agence-voyage-back
+**Installer les dépendances :**
 
     ```bash
-
-  npm install
+     composer install
+     ```
+**Configurer l'environnement : Modifiez le fichier .env pour ajouter vos paramètres de base de données :**
+   ```bash
+   DATABASE_URL="mysql://username:password@127.0.0.1:3306/tripagency?serverVersion=5.7"
+   ```
+**Effectuer les migrations :**
+   ```bash
+   php bin/console doctrine:migrations:migrate
+   ```
+**Lancer le serveur local :**
+   ```bash
+   symfony server:start
+   ```
