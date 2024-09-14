@@ -39,7 +39,7 @@ Ce projet est le back-end d'une plateforme d'agence de voyage, développé avec 
    ```bash
    git clone https://github.com/nom-utilisateur/agence-voyage-back.git
    cd agence-voyage-back
-    ```
+   ```
 **Installer les dépendances :**
    ```bash
    composer install
